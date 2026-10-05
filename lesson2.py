@@ -1,4 +1,5 @@
 log_file = "auth.log"
+threshold = 5
 counts = {}
 
 with open(log_file) as f:
@@ -10,5 +11,8 @@ with open(log_file) as f:
                 counts[ip] = 0
             counts[ip] = counts[ip] + 1
 
-for ip in counts:
-    print(ip, counts[ip])
+for ip in sorted(counts, key=counts.get, reverse=True):
+    if counts[ip] > threshold:
+        print("ALERT", ip, counts[ip])
+    else:
+        print("ok", ip, counts[ip])
