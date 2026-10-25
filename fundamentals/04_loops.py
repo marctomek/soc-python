@@ -57,7 +57,6 @@ print("Total accepted logins:", accepted_count)
 
 for number in range(1, 6):
     print(number)
-       python
 #range(1, 6) starts at 1 and stops before 6.
 #number holds each value in turn.
 #Output:
